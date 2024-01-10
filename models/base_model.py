@@ -6,25 +6,25 @@ from datetime import datetime
 
 
 class BaseModel:
-    """Represents the BaseModel of the HBnB project."""
+    """Represents base Model of the HBnB project."""
 
     def __init__(self, *args, **kwargs):
-        """Initialize a new BaseModel.
+        """Initialize new BaseModel.
 
         Args:
             *args (any): Unused.
             **kwargs (dict): Key/value pairs of attributes.
         """
-        tform = "%Y-%m-%dT%H:%M:%S.%f"
+        tformat = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        if len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "created_at" or k == "updated_at":
-                    self.__dict__[k] = datetime.strptime(v, tform)
+        if length(kwargs) != 0:
+            for m, n in kwargs.items():
+                if m == "created_at" or m == "updated_at":
+                    self.__dict__[m] = datetime.strptime(n, tformat)
                 else:
-                    self.__dict__[k] = v
+                    self.__dict__[m] = n
         else:
             models.storage.new(self)
 
@@ -39,13 +39,13 @@ class BaseModel:
         Includes the key/value pair __class__ representing
         the class name of the object.
         """
-        rdict = self.__dict__.copy()
-        rdict["created_at"] = self.created_at.isoformat()
-        rdict["updated_at"] = self.updated_at.isoformat()
-        rdict["__class__"] = self.__class__.__name__
-        return rdict
+        redict = self.__dict__.copy()
+        redict["created_at"] = self.created_at.isoformat()
+        redict["updated_at"] = self.updated_at.isoformat()
+        redict["__class__"] = self.__class__.__name__
+        return redict
 
     def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
-        clname = self.__class__.__name__
-        return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+        """Return the string representation of the BaseModel instance."""
+        cl_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(cl_name, self.id, self.__dict__)
