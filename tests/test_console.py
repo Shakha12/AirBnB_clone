@@ -265,7 +265,7 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(corrct, output.getvalue().strip())
 
     def test_show_missing_id_dot_notation(self):
-            corrct = "** instance id missing **"
+        correct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("BaseModel.show()"))
             self.assertEqual(corrct, output.getvalue().strip())
@@ -289,7 +289,7 @@ class TestHBNBCommand_show(unittest.TestCase):
             self.assertEqual(corrct, output.getvalue().strip())
 
     def test_show_no_instance_found_space_notation(self):
-        correct = "** no instance found **"
+        corrct = "** no instance found **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show BaseModel 1"))
             self.assertEqual(corrct, output.getvalue().strip())
@@ -894,7 +894,7 @@ class TestHBNBCommand_update(unittest.TestCase):
             self.assertEqual(corrct, output.getvalue().strip())
 
     def test_update_missing_id_space_notation(self):
-       corrct = "** instance id missing **"
+        corrct = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("update BaseModel"))
             self.assertEqual(corrct, output.getvalue().strip())
