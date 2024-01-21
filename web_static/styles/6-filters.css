@@ -25,7 +25,7 @@ section.filters button {
 section.filters button:hover {
     opacity: .9;
 }
-/* location and amenities part of search bar */
+/*The location and amenities part of search bar */
 .locations,
 .amenities {
     height: 100%;
